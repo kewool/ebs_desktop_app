@@ -1,0 +1,10 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color:pink;
+}
+
+h2{
+    background-color:green;
+    -webkit-app-region:drag;
+}
