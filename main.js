@@ -7,13 +7,12 @@ app.on('ready', () => {
     const win = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: true,
+            contextIsolation: false,
         },
         width: 1280,
         height: 720,
         show: false
     })
-    win.removeMenu();
     win.loadURL(`file://${__dirname}/login.html`)
 
     win.on('ready-to-show', () => {
@@ -26,6 +25,6 @@ app.on('quit', (event, exitCode) => {
 })
 
 ipcMain.on('login', (event, args) => {
-    console.log("message received")
-    console.log(args);
+    let { id, pwd } = args;
+    console.log(id, pwd)
 });
