@@ -13,7 +13,7 @@ app.on('ready', ()=>{
         frame:true,
         show:false
     })
-
+    win.removeMenu();
     win.loadURL(`file://${__dirname}/index.html`)
 
     win.on('ready-to-show',()=>{

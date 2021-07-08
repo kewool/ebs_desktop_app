@@ -1,10 +1,33 @@
 body{
-    width: 100%;
-    height: 100%;
     background-color:pink;
+    overflow: hidden;
+    align-items: center;
 }
 
-h2{
-    background-color:green;
-    -webkit-app-region:drag;
+.login_box{
+    background-color: white;
+    width:400px;
+    height:200px;
+    text-align:center;
+    margin:auto;
+    display:flex;
+}
+
+.box{
+    align-items: center;
+}
+
+.line{
+    height: 100%;
+}
+
+.login_item{
+    display: inline;
+}
+.login_item:focus{
+    box-shadow: none;
+}
+
+.login_idbox{
+    margin-left:20px;
 }
