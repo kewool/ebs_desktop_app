@@ -8,8 +8,8 @@ app.on('ready', ()=>{
             nodeIntegration: true,
             contextIsolation: false,
         },
-        width:600,
-        height:600,
+        width:1280,
+        height:720,
         frame:true,
         show:false
     })
