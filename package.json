@@ -10,7 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "ebsoc-lib": "^1.0.0"
+  },
   "devDependencies": {
     "electron": "^13.1.6"
   }

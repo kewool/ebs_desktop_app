@@ -3,22 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="./login.js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <div class="box_line">
-        <form class="login_box" action="./login.html" onsubmit="login();">
+        <div class="login_box">
             <div class="line">
                 <input type="text" id="id" class="inputtext" placeholder="아이디">
                 <input type="password" id="password" class="inputtext" placeholder="비밀번호">
             </div>
             <div class="btn_line">
-                <input type="submit" class="login_btn" value="로그인">
+                <input type="button" class="login_btn" value="로그인" onclick="login();">
             </div>
         </form>
     </div>
+    <script src="./src/renderer.js"></script>
 </body>
 
 
