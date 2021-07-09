@@ -1,45 +1,375 @@
-body{
-    padding:85px 100px 0px 100px;
-    align-items: center;
+a {
+	color: #333;
+	text-decoration: none
 }
 
-.panel{
-    align-items: center;
-    text-align: center;
-    display:flex;
-    flex-flow:wrap;
+.btn {
+	display: inline-block;
+	position: relative;
+	font-size: 15px;
+	vertical-align: top;
+	text-align: center;
+	border: 1px solid;
+	border-radius: 3px
 }
 
-.obj{
-    align-items: center;
-    display:inline-block;
-    width:400px;
-    height:120px;
-    border-radius: 15px;
-    border:3px solid green;
-    margin: 15px auto;
-}
-.obj:hover{
-    cursor: pointer;
+.btn_keycolor {
+	color: #fff !important;
+	border-color: #0b7f3d;
+	background-color: #0b7f3d
 }
 
-.obj_text{
-    display: flex;
-    justify-content: center;
-    font-size: 26px;
+.btn_grey {
+	color: #fff !important;
+	border-color: #b3b3b3;
+	background-color: #b3b3b3
 }
 
-.progress_zero{
-    background-color: white;
+.btn_line_keycolor {
+	color: #0b7f3d !important;
+	border-color: #0b7f3d
 }
 
-.progress_pause{
-    background-color: greenyellow;
+.card_list {
+	display: -webkit-box;
+	display: -ms-flexbox;
+    margin-top:100px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -30px;
+	margin-left: -30px;
 }
 
-.progress_finish{
-    background-color: #333333;
+.card_list>li {
+	overflow: hidden;
+	position: relative;
+	width: calc(25% - 30px);
+	margin-bottom: 30px;
+	margin-left: 30px;
+	padding-bottom: 58px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15)
 }
-.progress_finish_text{
-    color:white;
+
+.card_list>li .info {
+	padding: 25px 40px 180px;
+	font-size: 0
+}
+
+.card_list>li .info .tit {
+	overflow: hidden;
+	height: 56px;
+	margin-top: 23px;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 28px
+}
+
+.card_list>li .bottom {
+	margin-top: 12px;
+	position: absolute;
+	padding: 20px 40px 30px;
+	box-sizing: border-box;
+	background-color: #fff;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.card_list>li .bottom .btn {
+	display: block;
+	margin-top: 15px;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 48px;
+	border-radius: 25px
+}
+
+.card_list.student>li {
+	padding-bottom: 0;
+	background-color: #f8f9fa;
+}
+
+
+/* tablet */
+
+@media (max-width:1023px) {
+	.card_list {
+		margin-bottom: -18px;
+		margin-left: -18px
+	}
+	.card_list>li {
+		width: calc(50% - 18px);
+		margin-bottom: 18px;
+		margin-left: 18px
+	}
+	.card_list>li .info .hashtag p {
+		min-width: 72px;
+		margin-right: 12px;
+		padding: 0 12px;
+		font-size: 17px;
+		line-height: 34px
+	}
+	.card_list>li .info .tit {
+		height: 68px;
+		margin-top: 9px;
+		font-size: 22px;
+		line-height: 34px
+	}
+	.card_list>li .info .summ_info p {
+		font-size: 19px;
+		line-height: 31px
+	}
+	.card_list>li .info .summ_info p i {
+		font-size: 31px
+	}
+	.card_list>li .info .process {
+		font-size: 18px
+	}
+	.card_list>li .state {
+		padding: 14px 10px;
+		font-size: 22px
+	}
+	.card_list>li .bottom {
+		padding: 12px 24px 18px
+	}
+	.card_list>li .bottom .summ_info p {
+		margin-right: 12px;
+		font-size: 17px;
+		line-height: 24px
+	}
+	.card_list>li .bottom .summ_info p i {
+		font-size: 24px
+	}
+	.card_list>li .bottom .btn {
+		padding: 11px 15px;
+		font-size: 18px;
+		line-height: 145%;
+		word-break: keep-all;
+		border-radius: 35px
+	}
+	.card_list>li.nodata p {
+		font-size: 19px;
+		line-height: 26px
+	}
+	.card_list>li.nodata p i {
+		font-size: 48px
+	}
+	.card_list.sm>li {
+		width: calc(50% - 18px)
+	}
+	.card_list.sm>li .info {
+		padding-right: 18px;
+		padding-left: 18px
+	}
+	.card_list.sm>li .bottom {
+		padding: 12px 18px 7px
+	}
+	.card_list .slide {
+		width: calc(50% - 18px)
+	}
+	.card_list .slide .info {
+		padding: 12px 24px 13px
+	}
+	.card_list .slide .info .hashtag p {
+		min-width: 72px;
+		margin-right: 12px;
+		padding: 0 12px;
+		font-size: 17px;
+		line-height: 34px
+	}
+	.card_list .slide .info .tit {
+		height: 68px;
+		margin-top: 9px;
+		font-size: 22px;
+		line-height: 34px
+	}
+	.card_list .slide .info .summ_info p {
+		font-size: 19px;
+		line-height: 31px
+	}
+	.card_list .slide .info .summ_info p i {
+		font-size: 31px
+	}
+	.card_list .slide .info .process {
+		font-size: 18px
+	}
+	.card_list .slide .state {
+		padding: 14px 10px;
+		font-size: 22px
+	}
+	.card_list .slide .bottom {
+		padding: 12px 24px 18px
+	}
+	.card_list .slide .bottom .summ_info p {
+		margin-right: 12px;
+		font-size: 17px;
+		line-height: 24px
+	}
+	.card_list .slide .bottom .summ_info p i {
+		font-size: 24px
+	}
+	.card_list .slide .bottom .btn {
+		padding: 11px 15px;
+		font-size: 18px;
+		line-height: 145%;
+		word-break: keep-all;
+		border-radius: 35px
+	}
+	.card_list .slide.nodata p {
+		font-size: 19px;
+		line-height: 26px
+	}
+	.card_list .slide.nodata p i {
+		font-size: 48px
+	}
+	.card_list.student>li>.tit {
+		padding: 12px 24px;
+		font-size: 17px
+	}
+}
+
+
+/* mobile */
+
+@media (max-width:767px) {
+	.card_list {
+		margin-bottom: -15px;
+		margin-left: 0
+	}
+	.card_list>li {
+		width: 100%;
+		margin-bottom: 15px;
+		margin-left: 0
+	}
+	.card_list>li .info .hashtag p {
+		min-width: 60px;
+		margin-right: 10px;
+		padding: 0 10px;
+		font-size: 14px;
+		line-height: 28px
+	}
+	.card_list>li .info .tit {
+		height: auto;
+		margin-top: 8px;
+		font-size: 18px;
+		line-height: 28px
+	}
+	.card_list>li .info .summ_info p {
+		font-size: 16px;
+		line-height: 26px
+	}
+	.card_list>li .info .summ_info p i {
+		font-size: 26px
+	}
+	.card_list>li .info .process {
+		font-size: 15px
+	}
+	.card_list>li .state {
+		padding: 16px 10px;
+		font-size: 18px
+	}
+	.card_list>li .bottom {
+		padding: 10px 20px 15px
+	}
+	.card_list>li .bottom .summ_info p {
+		margin-right: 10px;
+		font-size: 14px;
+		line-height: 20px
+	}
+	.card_list>li .bottom .summ_info p i {
+		font-size: 20px
+	}
+	.card_list>li .bottom .btn {
+		padding-top: 7px;
+		padding-bottom: 8px;
+		font-size: 16px
+	}
+	.card_list>li.nodata {
+		display: none !important;
+		min-height: 200px
+	}
+	.card_list>li.nodata:first-child {
+		display: block !important
+	}
+	.card_list>li.nodata p {
+		padding: 40px 0;
+		font-size: 16px;
+		line-height: 22px
+	}
+	.card_list>li.nodata p i {
+		font-size: 40px
+	}
+	.card_list.sm>li {
+		width: 100%
+	}
+	.card_list.sm>li .info {
+		padding-right: 15px;
+		padding-left: 15px
+	}
+	.card_list.sm>li .bottom {
+		padding: 10px 15px 5px
+	}
+	.card_list .slide {
+		margin-bottom: 0;
+		margin-left: 30px;
+		box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15)
+	}
+	.card_list .slide .info {
+		padding: 10px 20px 13px
+	}
+	.card_list .slide .info .hashtag p {
+		min-width: 60px;
+		margin-right: 10px;
+		padding: 0 10px;
+		font-size: 14px;
+		line-height: 28px
+	}
+	.card_list .slide .info .tit {
+		margin-top: 8px;
+		font-size: 18px;
+		line-height: 28px
+	}
+	.card_list .slide .info .summ_info p {
+		font-size: 16px;
+		line-height: 26px
+	}
+	.card_list .slide .info .summ_info p i {
+		font-size: 26px
+	}
+	.card_list .slide .info .process {
+		font-size: 15px
+	}
+	.card_list .slide .state {
+		padding: 16px 10px;
+		font-size: 18px
+	}
+	.card_list .slide .bottom {
+		padding: 10px 20px 15px
+	}
+	.card_list .slide .bottom .summ_info p {
+		margin-right: 10px;
+		font-size: 14px;
+		line-height: 20px
+	}
+	.card_list .slide .bottom .summ_info p i {
+		font-size: 20px
+	}
+	.card_list .slide .bottom .btn {
+		padding-top: 7px;
+		padding-bottom: 8px;
+		font-size: 16px
+	}
+	.card_list .slide.nodata {
+		min-height: 260px
+	}
+	.card_list .slide.nodata p {
+		padding: 40px 0;
+		font-size: 16px;
+		line-height: 22px
+	}
+	.card_list .slide.nodata p i {
+		font-size: 40px
+	}
 }
