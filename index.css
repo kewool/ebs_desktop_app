@@ -1,0 +1,26 @@
+.panel{
+    margin: 100px 0 0;
+    height: 50px;
+    font-size:24px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.obj{
+    background-color: white;
+    height: 50px;
+    border-radius: 20px;
+    width:90%;
+    margin:9px auto 0;
+    border:4px solid green;
+}
+.obj:hover {
+    cursor:pointer;
+}
+.obj:active {
+    background-color: #cccccc;
+}
+
+.obj_text{
+    margin: 8px 0 0 10px;
+}
