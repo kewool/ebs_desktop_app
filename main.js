@@ -31,9 +31,14 @@ ipcMain.on('login', async (event, args) => {
     let { id, pwd } = args;
     try {
         let data = await ebs.Auth.login(id, pwd);
+        console.log(data.data.token)
         event.reply('login-complete');
     }
     catch (err) {
         event.reply('login-failure', err)
     }
 });
+
+ipcMain.on('class', async(event, args)=>{
+    
+})
