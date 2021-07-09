@@ -6,6 +6,10 @@ $(() => {
     ipcRenderer.send(CLASS.CLASS_LIST_REQUEST);
 });
 
-ipcRenderer.on(CLASS.CLASS_LIST_RESPONSE, function (data) {
+ipcRenderer.on(CLASS.CLASS_LIST_RESPONSE, (data) => {
+    console.log(data);
+});
 
+ipcRenderer.on(CLASS.CLASS_LIST_FAILURE, () => {
+    ipcRenderer.send(CLASS.CLASS_LIST_REQUEST);
 });
