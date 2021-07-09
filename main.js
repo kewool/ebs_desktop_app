@@ -1,44 +1,40 @@
 const { app, BrowserWindow } = require('electron');
-const { ipcMain } = require('electron');
-const ebs = require('ebsoc');
+const { protocol } = require('electron');
+const path = require('path');
 
-app.on('ready', () => {
-    console.log(`ready`);
+const createWindow = () => {
+    protocol.interceptFileProtocol('file', (request, callback) => {
+        const url = request.url.substr(7);
+        callback({ path: path.normalize(`${__dirname}/${url}`) });
+    });
 
     const win = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            preload: path.join(__dirname, 'preload.js')
         },
         width: 1280,
         height: 720,
-        show: false,
         minWidth: 960,
         minHeight: 540
-    })
-    win.loadURL(`file://${__dirname}/login.html`)
-
-    win.on('ready-to-show', () => {
-        win.show();
     });
-})
 
-app.on('quit', (event, exitCode) => {
-    console.log(`quit : ${exitCode}`);
-})
+    win.loadURL('file://pages/login.html');
+};
 
-ipcMain.on('login', async (event, args) => {
-    let { id, pwd } = args;
-    try {
-        let data = await ebs.Auth.login(id, pwd);
-        console.log(data.data.token)
-        event.reply('login-complete');
-    }
-    catch (err) {
-        event.reply('login-failure', err)
-    }
+app.on('ready', () => {
+    createWindow();
+
+    app.on('activate', function () {
+        // On macOS it's common to re-create a window in the app when the
+        // dock icon is clicked and there are no other windows open.
+        if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    });
 });
 
-ipcMain.on('class', async(event, args)=>{
-    
-})
+app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') app.quit();
+});
+
+require('./ipcHandler');

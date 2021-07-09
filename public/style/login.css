@@ -78,3 +78,12 @@ body{
 .login_btn:active {
     background-color: #fa5300;
 }
+
+.footer {
+    position: absolute;
+    left: 0px;
+    color: #FFFFFF;
+}
+.hidden {
+    color: #000 !important;
+}

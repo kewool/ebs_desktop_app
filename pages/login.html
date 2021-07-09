@@ -3,22 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="file://public/style/login.css">
 </head>
 
 <body>
     <div class="box_line">
         <div class="login_box">
             <div class="line">
-                <input type="text" id="id" class="inputtext" placeholder="아이디">
+                <input type="text" id="id" class="inputtext" placeholder="아이디" onkeydown="javascript:enter();">
                 <input type="password" id="pass" class="inputtext" placeholder="비밀번호" onkeydown="javascript:enter();">
             </div>
             <div class="btn_line">
                 <input type="button" class="login_btn" value="로그인" onclick="login();">
             </div>
-        </form>
+        </div>
     </div>
-    <script src="./renderers/login.js"></script>
+
+    <div class="footer hidden">
+        Node.js <span id="node-version"></span><br>
+        Chromium <span id="chrome-version"></span><br>
+        Electron <span id="electron-version"></span><br>
+    </div>
+    <script src="file://renderers/login.js"></script>
 </body>
 
 
