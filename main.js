@@ -5,7 +5,8 @@ const path = require('path');
 const createWindow = () => {
     protocol.interceptFileProtocol('file', (request, callback) => {
         const url = request.url.substr(7);
-        callback({ path: path.normalize(`${__dirname}/${url}`) });
+        console.log(`${__dirname}/${url}`);
+        callback({ path: `${__dirname}/${url}` });//path.normalize(`${__dirname}/${url}`) });
     });
 
     const win = new BrowserWindow({
