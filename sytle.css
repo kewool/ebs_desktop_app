@@ -10,6 +10,8 @@
     left: 0;
     right: 0;
     box-shadow: 2px 0px 5px #808080;
+    display:flex;
+    justify-content: space-between;
 }
 
 .nav_bar{
@@ -29,6 +31,10 @@
 .logout_btn{
     width:100px;
     display:inline-block;
+}
+.logout_btn:hover{
+    background-color: #cccccc;
+    cursor:pointer;
 }
 
 .btn_text{
