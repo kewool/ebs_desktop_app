@@ -12,7 +12,9 @@ app.on('ready', () => {
         },
         width: 1280,
         height: 720,
-        show: false
+        show: false,
+        minWidth: 960,
+        minHeight: 540
     })
     win.loadURL(`file://${__dirname}/login.html`)
 
