@@ -11,10 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "ebsoc": "file:ebsoc"
   },
   "devDependencies": {
-    "ebsoc-lib": "^1.0.0",
     "electron": "^13.1.6"
   }
 }
