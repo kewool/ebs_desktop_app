@@ -13,6 +13,7 @@ const login = function () {
 
 ipcRenderer.on('login-complete', (event, args) => {
     console.log("login complete");
+    location.href="./index.html";
     //다음 페이지 전환
 })
 
