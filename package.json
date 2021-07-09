@@ -11,11 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.21.1",
     "ebsoc": "file:ebsoc",
     "jquery": "^3.6.0"
+=======
+    "ebsoc": "file:ebsoc"
+>>>>>>> b826d172b75e5ae7ec921da4d864f4de42c6fac7
   },
   "devDependencies": {
+    "axios": "^0.21.1",
     "electron": "^13.1.6"
   }
 }
