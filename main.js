@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const { ipcMain } = require('electron');
+const ebs = require('ebsoc');
 
 app.on('ready', () => {
     console.log(`ready`);
@@ -7,13 +8,12 @@ app.on('ready', () => {
     const win = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: true,
+            contextIsolation: false,
         },
         width: 1280,
         height: 720,
         show: false
     })
-    win.removeMenu();
     win.loadURL(`file://${__dirname}/login.html`)
 
     win.on('ready-to-show', () => {
@@ -25,7 +25,13 @@ app.on('quit', (event, exitCode) => {
     console.log(`quit : ${exitCode}`);
 })
 
-ipcMain.on('login', (event, args) => {
-    console.log("message received")
-    console.log(args);
+ipcMain.on('login', async (event, args) => {
+    let { id, pwd } = args;
+    try {
+        let data = await ebs.Auth.login(id, pwd);
+        event.reply('login-complete');
+    }
+    catch (err) {
+        event.reply('login-failure', err)
+    }
 });

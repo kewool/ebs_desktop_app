@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ebsoc-lib": "^1.0.0"
+    "ebsoc": "file:ebsoc"
   },
   "devDependencies": {
     "electron": "^13.1.6"

@@ -1,0 +1,3 @@
+[submodule "ebsoc"]
+	path = ebsoc
+	url = https://github.com/rmagur1203/ebsoc
