@@ -6,8 +6,16 @@ $(() => {
     ipcRenderer.send(CLASS.CLASS_LIST_REQUEST);
 });
 
-ipcRenderer.on(CLASS.CLASS_LIST_RESPONSE, (data) => {
-    console.log(data);
+ipcRenderer.on(CLASS.CLASS_LIST_RESPONSE, (event, data) => {
+    console.log(data.data);
+    $("div.panel").empty();
+    for (let item of data.data.list) {
+        $("div.panel").append(`<div class="obj">
+            <a href="./${item.classUrlPath}" class="padding">
+                <p class="obj_text">${item.className}</p>
+            </a>
+        </div>`);
+    }
 });
 
 ipcRenderer.on(CLASS.CLASS_LIST_FAILURE, () => {

@@ -28,6 +28,7 @@ ipcMain.on(CLASS.CLASS_LIST_REQUEST, async (event, args) => {
             searchWord: "",
             tabType: Wrapper.TAB_TYPE.SBSCE
         });
+        console.log(data);
         event.reply(CLASS.CLASS_LIST_RESPONSE, data.data);
     } catch (err) {
         event.reply(CLASS.CLASS_LIST_FAILURE);
