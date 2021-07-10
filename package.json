@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "ebsoc": "file:ebsoc",
+    "ebsoc-lib": "^1.0.0",
     "jquery": "^3.6.0"
   },
   "devDependencies": {
