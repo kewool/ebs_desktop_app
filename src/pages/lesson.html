@@ -11,27 +11,22 @@
         <a href="./class.html" class="back">
             <img src="electron:/public/back.svg" class="back_img">
         </a>
-        <div>
-            <a href="./">
+        <div class="class_btn">
+            <a href="file://pages/index.html">
                 <div class="nav_btn">
                     <p class="btn_text">내 클래스</p>
                 </div>
             </a>
         </div>
         <div class="logout_btn">
-            <p class="btn_text" style="color:red">로그아웃</p>
+            <a href="file://pages/login.html">
+                <p class="btn_text" style="color:red">로그아웃</p>
+            </a>
         </div>
     </div>
 
-    <div class="board" style="display:block;" id="0">
-        <a class="board_box board_box_last board_box_top" href="./">
-            <img class="img_size" src="electron://public/play-button.svg">
-            <p class="board_box_text">1강</p>
-        </a>
-        <a class="board_box board_box_last" href="./">
-            <img class="img_size" src="electron://public/play-button.svg" onclick="video(1);">
-            <p class="board_box_text">2강</p>
-        </a>
+    <div class="board" style="display:block;">
+        
     </div>
 
     <script src="electron://renderers/lesson.js"></script>
