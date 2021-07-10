@@ -1,3 +1,7 @@
+body{
+	align-items: center;
+}
+
 a {
 	color: #333;
 	text-decoration: none
@@ -43,13 +47,14 @@ a {
 .card_list>li {
 	overflow: hidden;
 	position: relative;
-	width: calc(25% - 30px);
+	width: calc(24% - 30px);
 	margin-bottom: 30px;
 	margin-left: 30px;
 	padding-bottom: 58px;
 	border: 1px solid #ccc;
 	border-radius: 20px;
-	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15)
+	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15);
+	z-index: 0;
 }
 
 .card_list>li .info {
