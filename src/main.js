@@ -4,7 +4,7 @@ const path = require('path');
 
 const createWindow = () => {
     protocol.registerFileProtocol('electron', (request, callback) => {
-        const url = request.url.substr(7);
+        const url = request.url.substr(`electron://`.length);
         callback({ path: path.normalize(`${__dirname}/${url}`) });
     });
 
@@ -37,4 +37,4 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit();
 });
 
-require('../ipcHandler');
+require('./ipcHandler');

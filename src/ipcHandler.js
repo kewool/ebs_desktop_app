@@ -39,11 +39,30 @@ const LESSON = require('./events/lesson');
 ipcMain.on(LESSON.LESSON_REQUEST, async (event, args) => {
     try {
         console.log("on!");
-        let detail = await ebs.Cls.lctClass.detail(userdata.token, { classUrlPath: "sunrincomsy" });
+        let detail = await ebs.Cls.lctClass.detail(userdata.token, { classUrlPath: args.classUrlPath });
         let classSqno = detail.data.classSqno;
-        //event.reply(LESSON.LESSON_RESPONSE, null);
+        //event.reply(LESSON.LESSON_RESPONSE, data);
     } catch (err) {
         console.log(err);
         event.reply(LESSON.LESSON_FAILURE);
     }
+});
+
+const COURSE = require('./events/course');
+
+ipcMain.on(COURSE.COURSE_REQUEST, async (event, args) => {
+    let data = await Wrapper.fetchCourse(
+        userdata.token,
+        args.classUrlPath,
+        {
+            status: Wrapper.COURSE_STATUS.ALL,
+            orderBy: Wrapper.COURSE_ORDER_BY.REGISTRATION_DATE
+        }
+    );
+    if (data.err){
+        console.log(data);
+        return;
+        event.reply(COURSE.COURSE_FAILURE);
+    }
+    event.reply(COURSE.COURSE_RESPONSE, data);
 });
