@@ -28,9 +28,22 @@ ipcMain.on(CLASS.CLASS_LIST_REQUEST, async (event, args) => {
             searchWord: "",
             tabType: Wrapper.TAB_TYPE.SBSCE
         });
-        console.log(data);
         event.reply(CLASS.CLASS_LIST_RESPONSE, data.data);
     } catch (err) {
         event.reply(CLASS.CLASS_LIST_FAILURE);
+    }
+});
+
+const LESSON = require('./events/lesson');
+
+ipcMain.on(LESSON.LESSON_REQUEST, async (event, args) => {
+    try {
+        console.log("on!");
+        let detail = await ebs.Cls.lctClass.detail(userdata.token, { classUrlPath: "sunrincomsy" });
+        let classSqno = detail.data.classSqno;
+        //event.reply(LESSON.LESSON_RESPONSE, null);
+    } catch (err) {
+        console.log(err);
+        event.reply(LESSON.LESSON_FAILURE);
     }
 });

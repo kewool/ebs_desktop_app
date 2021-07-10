@@ -3,7 +3,7 @@ const { protocol } = require('electron');
 const path = require('path');
 
 const createWindow = () => {
-    protocol.interceptFileProtocol('file', (request, callback) => {
+    protocol.registerFileProtocol('electron', (request, callback) => {
         const url = request.url.substr(7);
         callback({ path: path.normalize(`${__dirname}/${url}`) });
     });
@@ -20,7 +20,7 @@ const createWindow = () => {
         minHeight: 540
     });
 
-    win.loadURL('file://pages/login.html');
+    win.loadURL(`file://${__dirname}/pages/login.html`);
 };
 
 app.on('ready', () => {
@@ -37,4 +37,4 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit();
 });
 
-require('./ipcHandler');
+require('../ipcHandler');

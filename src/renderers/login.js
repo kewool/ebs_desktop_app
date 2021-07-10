@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron');
-const LOGIN = require('./events/login.js');
+const LOGIN = require('../events/login.js');
 
 const enter = function () {
     if (event.keyCode == 13)
@@ -14,7 +14,7 @@ const login = function () {
 
 ipcRenderer.on(LOGIN.SIGNIN_COMPLETE, (event, args) => {
     console.log("login complete");
-    location.href = "file://pages/index.html";
+    location.href = "./index.html";
 });
 
 ipcRenderer.on(LOGIN.SIGNIN_FAILURE, (event, args) => {
