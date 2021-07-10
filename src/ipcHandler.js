@@ -38,11 +38,12 @@ const LESSON = require('./events/lesson');
 
 ipcMain.on(LESSON.LESSON_REQUEST, async (event, args) => {
     try {
+        console.log("on!");
         let detail = await ebs.Cls.lctClass.detail(userdata.token, { classUrlPath: "sunrincomsy" });
-        let classSqno = detail.data.data.classSqno;
-        console.log(classSqno);
+        let classSqno = detail.data.classSqno;
         //event.reply(LESSON.LESSON_RESPONSE, null);
     } catch (err) {
+        console.log(err);
         event.reply(LESSON.LESSON_FAILURE);
     }
 });

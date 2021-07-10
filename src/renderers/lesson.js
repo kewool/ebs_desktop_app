@@ -5,7 +5,7 @@ const $ = require('jquery');
 $(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlParams);
-    ipcRenderer.send(LESSON.LESSON_REQUEST, params);
+    ipcRenderer.send(LESSON.LESSON_REQUEST);
 });
 
 ipcRenderer.on(LESSON.LESSON_RESPONSE, (event, data) => {

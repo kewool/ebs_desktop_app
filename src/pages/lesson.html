@@ -2,17 +2,17 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="file://public/style/sytle.css">
-    <link rel="stylesheet" href="file://public/style/lesson.css">
+    <link rel="stylesheet" href="electron://public/style/sytle.css">
+    <link rel="stylesheet" href="electron://public/style/lesson.css">
 </head>
 
 <body>
     <div class="topbar">
-        <a href="file://pages/class.html" class="back">
-            <img src="file://public/back.svg" class="back_img">
+        <a href="./class.html" class="back">
+            <img src="electron:/public/back.svg" class="back_img">
         </a>
         <div>
-            <a href="/">
+            <a href="./">
                 <div class="nav_btn">
                     <p class="btn_text">내 클래스</p>
                 </div>
@@ -25,16 +25,16 @@
 
     <div class="board" style="display:block;" id="0">
         <a class="board_box board_box_last board_box_top" href="./">
-            <img class="img_size" src="file://public/play-button.svg">
+            <img class="img_size" src="electron://public/play-button.svg">
             <p class="board_box_text">1강</p>
         </a>
         <a class="board_box board_box_last" href="./">
-            <img class="img_size" src="file://public/play-button.svg" onclick="video(1);">
+            <img class="img_size" src="electron://public/play-button.svg" onclick="video(1);">
             <p class="board_box_text">2강</p>
         </a>
     </div>
 
-    <script src="file://renderers/lesson.js"></script>
+    <script src="electron://renderers/lesson.js"></script>
 </body>
 
 </html>
