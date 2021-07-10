@@ -10,11 +10,11 @@ ipcRenderer.on(CLASS.CLASS_LIST_RESPONSE, (event, data) => {
     console.log(data.data);
     $("div.panel").empty();
     for (let item of data.data.list) {
-        $("div.panel").append(`<div class="obj">
-            <a href="./course.html?classUrlPath=${encodeURI(item.classUrlPath)}" class="padding">
+        $("div.panel").append(`<a href="./course.html?classUrlPath=${encodeURI(item.classUrlPath)}" class="padding">
+            <div class="obj">
                 <p class="obj_text">${item.className}</p>
-            </a>
-        </div>`);
+            </div>
+        </a>`);
     }
 });
 
