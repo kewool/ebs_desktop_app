@@ -7,7 +7,6 @@ $(() => {
     const params = Object.fromEntries(urlParams);
     const { classUrlPath, lessonSeq, subLessonSeq } = params;
     ipcRenderer.send(PLAYER.PLAYER, params);
-    //
 });
 
 ipcRenderer.on(PLAYER.PLAYER, (event, args) => {
