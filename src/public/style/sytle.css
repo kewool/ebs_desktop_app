@@ -11,6 +11,7 @@
     right: 0;
     box-shadow: 2px 0px 5px #808080;
     display:flex;
+    z-index: 1;
 }
 
 a{
@@ -49,6 +50,10 @@ a{
     font-size:18px;
     padding: 25px 10px;
     margin:0;
+}
+
+.back:hover{
+    cursor: pointer;
 }
 
 .back_img{

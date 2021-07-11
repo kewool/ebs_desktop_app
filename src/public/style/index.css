@@ -24,3 +24,7 @@
 .obj_text{
     margin: 8px 0 0 10px;
 }
+
+.padding{
+    display:block;
+}
