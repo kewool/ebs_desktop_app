@@ -18,6 +18,11 @@ ipcMain.on(LOGIN.SIGNIN_REQUEST, async (event, args) => {
     }
 });
 
+ipcMain.on(LOGIN.SIGNIN_WITH_TOKEN, async (event, args) => {
+    userdata = args;
+    event.reply(LOGIN.SIGNIN_COMPLETE);
+});
+
 const CLASS = require('./events/class');
 
 ipcMain.on(CLASS.CLASS_LIST_REQUEST, async (event, args) => {
@@ -39,9 +44,15 @@ const LESSON = require('./events/lesson');
 ipcMain.on(LESSON.LESSON_REQUEST, async (event, args) => {
     try {
         console.log("on!");
-        let detail = await ebs.Cls.lctClass.detail(userdata.token, { classUrlPath: args.classUrlPath });
+        console.log(args);
+        let { classUrlPath, lessonSeq } = args;
+        /*
+        let detail = await ebs.Cls.lctClass.detail(userdata.token, { classUrlPath: classUrlPath });
         let classSqno = detail.data.classSqno;
-        //event.reply(LESSON.LESSON_RESPONSE, data);
+        */
+        let lessons = await ebs.Lecture.$classUrlPath.lesson.lecture.attend.list.$lessonSeq(userdata.token,
+            { classUrlPath: classUrlPath, lessonSeq: lessonSeq });
+        event.reply(LESSON.LESSON_RESPONSE, lessons);
     } catch (err) {
         console.log(err);
         event.reply(LESSON.LESSON_FAILURE);
@@ -59,7 +70,7 @@ ipcMain.on(COURSE.COURSE_REQUEST, async (event, args) => {
             orderBy: Wrapper.COURSE_ORDER_BY.REGISTRATION_DATE
         }
     );
-    if (data.err){
+    if (data.err) {
         console.log(data);
         return;
         event.reply(COURSE.COURSE_FAILURE);

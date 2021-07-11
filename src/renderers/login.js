@@ -12,6 +12,12 @@ const login = function () {
     ipcRenderer.send(LOGIN.SIGNIN_REQUEST, { id: id.value, pwd: pass.value });
 };
 
+const loginWithToken = function (token) {
+    ipcRenderer.send(LOGIN.SIGNIN_WITH_TOKEN, {
+        token: token
+    });
+};
+
 ipcRenderer.on(LOGIN.SIGNIN_COMPLETE, (event, args) => {
     console.log("login complete");
     location.href = "./index.html";

@@ -22,12 +22,14 @@ const COURSE_STATUS_CLASS = Object.freeze({
 });
 
 $(() => {
+    if (window.location.search == "") return;
     const urlParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlParams);
     ipcRenderer.send(COURSE.COURSE_REQUEST, params);
 });
 
 ipcRenderer.on(COURSE.COURSE_RESPONSE, (event, data) => {
+    if (window.location.search == "") return;
     console.log(data);
     $("ul.student").empty();
     for (let item of data.data.list) {
@@ -36,14 +38,17 @@ ipcRenderer.on(COURSE.COURSE_RESPONSE, (event, data) => {
             <div class="tit eps2">${item.lessonName}</div>
         </div>
         <div class="bottom">
-             <a href="javascript:;" class="btn ${COURSE_STATUS_CLASS[item.atltStsCd]}">${COURSE_STATUS_TEXT[item.atltStsCd]}</a>
+             <a href="./lesson.html${window.location.search}&lessonSeq=${item.lessonSeq}"
+                class="btn ${COURSE_STATUS_CLASS[item.atltStsCd]}">${COURSE_STATUS_TEXT[item.atltStsCd]}</a>
         </div>
     </li>`);
     }
 });
 
 ipcRenderer.on(COURSE.COURSE_FAILURE, () => {
-    ipcRenderer.send(COURSE.COURSE_REQUEST);
+    const urlParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlParams);
+    setInterval(ipcRenderer.send, 1000, COURSE.COURSE_REQUEST, params);
 });
 
 window.addEventListener('DOMContentLoaded', () => {

@@ -1,16 +1,14 @@
 const { Wrapper } = require('ebsoc');
 
-const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJPbmxpbmUgQ2xhc3MiLCJtZW1iZXJOYW1lIjoi67CV6riI7ZiBIiwibWVtYmVyU2Nob29sQ29kZSI6IkgwMDI4NSIsImV4cCI6MTYyNjEwMDg4MCwiaWF0IjoxNjI1ODQxNjgwLCJtZW1iZXJJZCI6InJtYWd1cjEyMDMyIn0.HLHzHU0ujUy1nyRm3OolHp5sfuMULOhoGMt_FGIfpEM";
+const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJPbmxpbmUgQ2xhc3MiLCJtZW1iZXJOYW1lIjoi67CV6riI7ZiBIiwibWVtYmVyU2Nob29sQ29kZSI6IkgwMDI4NSIsImV4cCI6MTYyNjE5ODkxMiwiaWF0IjoxNjI1OTM5NzEyLCJtZW1iZXJJZCI6InJtYWd1cjEyMDMyIn0.Wb6_A3kn_AltSzjCg219v0oKYqL8MmsBW5kdmpusSVI";
 
 (async () => {
-    let data = await Wrapper.fetchCourse(
+    let player = new Wrapper.SimplePlayer(
         token,
-        "2021sunrinmath01hak",
-        {
-            status: Wrapper.COURSE_STATUS.ALL,
-            orderBy: Wrapper.COURSE_ORDER_BY.REGISTRATION_DATE
-        }
+        "tongsa1a",
+        12056
     );
+    let data = await player.lectureData();
     console.log(data);
     if (data.err)
         console.log("on error");
