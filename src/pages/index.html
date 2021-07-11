@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../public/style/sytle.css">
-    <link rel="stylesheet" href="../public/style/index.css">
+    <link rel="stylesheet" href="electron://public/style/sytle.css">
+    <link rel="stylesheet" href="electron://public/style/index.css">
 </head>
 
 <body>
     <div class="topbar">
-        <img src="../public/back2.svg" class="back_img">
+        <img src="electron://public/back2.svg" class="back_img">
         <div class="class_btn">
             <a href="./">
                 <div class="nav_btn">
@@ -18,7 +18,7 @@
             </a>
         </div>
         <div class="logout_btn">
-            <a href="file://pages/login.html">
+            <a href="./login.html">
                 <p class="btn_text" style="color:red">로그아웃</p>
             </a>
         </div>
@@ -27,7 +27,7 @@
     <div class="panel">
         
     </div>
-    <script src="../renderers/index.js"></script>
+    <script src="electron://renderers/index.js"></script>
 </body>
 
 </html>

@@ -43,8 +43,6 @@ const LESSON = require('./events/lesson');
 
 ipcMain.on(LESSON.LESSON_REQUEST, async (event, args) => {
     try {
-        console.log("on!");
-        console.log(args);
         let { classUrlPath, lessonSeq } = args;
         /*
         let detail = await ebs.Cls.lctClass.detail(userdata.token, { classUrlPath: classUrlPath });
@@ -72,8 +70,25 @@ ipcMain.on(COURSE.COURSE_REQUEST, async (event, args) => {
     );
     if (data.err) {
         console.log(data);
-        return;
         event.reply(COURSE.COURSE_FAILURE);
     }
     event.reply(COURSE.COURSE_RESPONSE, data);
+});
+
+const PLAYER = require('./events/player');
+
+ipcMain.on(PLAYER.PLAYER, async (event, args) => {
+    let Player = new Wrapper.SimplePlayer(
+        userdata.token,
+        args.classUrlPath,
+        args.lessonSeq,
+        args.subLessonSeq
+    );
+    let data = await Player.create();
+    let detail = await Player.lectureDetailData();
+    if (data.err) {
+        console.log(data);
+        event.reply(COURSE.PLAYER, { status: "err", err: data.err });
+    }
+    event.reply(PLAYER.PLAYER, { status: "ok", player: Player, create_data: data, detail_data: detail });
 });

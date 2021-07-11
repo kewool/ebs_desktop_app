@@ -11,10 +11,10 @@ $(() => {
 ipcRenderer.on(LESSON.LESSON_RESPONSE, (event, data) => {
     console.log(data.data);
     $("div.board").empty();
-    for (let item in data.data.list) {
+    for (let item of data.data.list) {
         $("div.board").append(`<a class="board_box board_box_last" href="./player.html?classUrlPath=${item.classUrlPath}&lessonSeq=${item.parentLessonSeq}&subLessonSeq=${item.lessonSeq}">
         <img class="img_size" src="electron://public/play-button.svg">
-        <p class="board_box_text">${item.lessonName}강</p>
+        <p class="board_box_text">${item.lessonName}</p>
     </a>`);
     }
 });

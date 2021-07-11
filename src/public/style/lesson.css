@@ -3,6 +3,7 @@ body{
 }
 
 .board_box{
+	background-color: white;
 	display:flex;
     width:75%;
 	height: 24px;
