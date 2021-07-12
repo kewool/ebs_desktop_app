@@ -7,18 +7,14 @@ body{
 	display:flex;
     width:75%;
 	height: 24px;
-	padding: 5px;
-	border-bottom:1px solid green;
-    margin:0 auto;
-}
-
-.board_box_top{
-	border-top:1px solid green;
+	padding: 10px;
+	border-radius: 10px;
+	border:2px solid green;
+    margin:10px auto;
 }
 
 .board_box_text{
-	font-size:16px;
-	font-family:'maple';
+	font-size:22px;
 	margin:0px 5px 0px 10px;
 	align-items:center;
 	display:flex;

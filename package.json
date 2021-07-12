@@ -15,13 +15,13 @@
   "dependencies": {
     "axios": "^0.21.1",
     "ebsoc": "file:ebsoc",
-    "ebsoc-lib": "^1.0.0",
-    "jquery": "^3.6.0"
+    "ebsoc-lib": "^1.0.0"
   },
   "devDependencies": {
     "axios": "^0.21.1",
     "electron": "^13.1.6",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^22.11.7",
+    "jquery": "^3.6.0"
   },
   "build": {
     "appId": "com.ebsoc.app",
@@ -31,9 +31,7 @@
       "category": "ebs.online.class.electron.application"
     },
     "win": {
-      "target": [
-
-      ],
+      "target": [],
       "icon": "./resources/installer/icon.ico"
     }
   }

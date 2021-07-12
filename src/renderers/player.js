@@ -14,5 +14,4 @@ ipcRenderer.on(PLAYER.PLAYER, (event, args) => {
     Player = args.player;
     FileObject = Player.lectureDetailInfo.lectureContentsDto.lectureContentsMvpDto.mvpFileDto;
     $(document.body).append(`<video src="${FileObject.fileStoragePath}" width="960" height="540" controls></video>`);
-    $(document.body).append(`<div class="download"><a href="${FileObject.fileStoragePath}">download</a></div>`);
 });
