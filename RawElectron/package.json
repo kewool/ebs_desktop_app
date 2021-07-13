@@ -1,3 +1,69 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:97c5e6d113ade110800874bafc22ce1d0a18bbc3ec1d91ca33ab373ab08fbe67
-size 1352
+{
+  "name": "ebsoc-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build": "electron-builder --windows nsis --publish never",
+    "deploy": "electron-builder --windows nsis --publish always",
+    "publish": "electron-builder --windows nsis --publish always",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ebsoc": "file:../ebsoc",
+    "ebsoc-lib": "^1.0.0",
+    "electron-updater": "^4.3.9",
+    "jquery": "^3.6.0",
+    "puppeteer": "^10.1.0"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "electron": "^13.1.6",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "appId": "com.ebsoc.app",
+    "productName": "ebsoc-app",
+    "copyright": "Copyright © 2021 kewool, rmagur1203",
+    "protocols": {
+      "name": "ebsoc-app",
+      "schemes": [
+        "ebsoc"
+      ]
+    },
+    "mac": {
+      "category": "ebs.online.class.electron.application"
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./resources/installer/icon.ico"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "kewool",
+        "repo": "ebs_desktop_app",
+        "token": "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"
+      }
+    ],
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    }
+  }
+}
