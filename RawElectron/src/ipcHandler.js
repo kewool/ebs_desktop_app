@@ -7,12 +7,21 @@ let userdata = {};
 let browser;
 
 (async() => {
+    const process = require('process');
+    const fs = require('fs');
+
     let chromePaths = [
-        `%ProgramFiles%\\Google\\Chrome\\Application\\chrome.exe`,
-        `%ProgramFiles(x86)%\\Google\\Chrome\\Application\\chrome.exe`,
-        `%LocalAppData%\\Google\\Chrome\\Application\\chrome.exe`,
-        `C:\Program Files (x86)\Google\Application\chrome.exe`
+        `${process.env['ProgramFiles']}\\Google\\Chrome\\Application\\chrome.exe`,
+        `${process.env['ProgramFiles(x86)']}\\Google\\Chrome\\Application\\chrome.exe`,
+        `${process.env['LOCALAPPDATA']}\\Google\\Chrome\\Application\\chrome.exe`,
     ];
+    for (let path of chromePaths){
+        let exists = fs.existsSync(path);
+        if (exists){
+            chromePath = path;
+            return;
+        }
+    }
 })();
 
 const createBrowser = async function(){
@@ -20,7 +29,8 @@ const createBrowser = async function(){
         args: [],
         headless: false,
         defaultViewport: null,
-        ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"]
+        ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
+        executablePath: chromePath
     });
     browser.on('disconnected', () => browser = null);
     browser.on('targetcreated', async function cb() {

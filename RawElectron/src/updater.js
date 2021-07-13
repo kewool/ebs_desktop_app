@@ -12,6 +12,7 @@ function createDefaultUpdateWindow() {
     updateWin = new BrowserWindow({
         backgroundColor: "#eeeeee",
         webPreferences: { nodeIntegration: true, contextIsolation: false },
+        show: false
     });
 
     updateWin.on("closed", () => {
@@ -26,12 +27,14 @@ autoUpdater.on("checking-for-update", () => {
 });
 autoUpdater.on("update-available", (info) => {
     sendStatusToWindow("Update available.");
+    updateWin.show();
 });
 autoUpdater.on("update-not-available", (info) => {
     sendStatusToWindow("Update not available.");
 });
 autoUpdater.on("error", (err) => {
     sendStatusToWindow("Error in auto-updater. " + err);
+    updateWin.show();
 });
 autoUpdater.on("download-progress", (progressObj) => {
     let log_message = "Download speed: " + progressObj.bytesPerSecond;
