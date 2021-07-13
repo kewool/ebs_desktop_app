@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8d319081609a1ba34748e711d7bea37c29c15d5fadb0cb0b87e979958f14875
-size 94
+RawElectron/dist/ filter=lfs diff=lfs merge=lfs -text
