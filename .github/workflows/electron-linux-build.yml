@@ -40,7 +40,6 @@ jobs:
     - run: sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
     - run: sudo apt-get install --install-recommends winehq-stable
     - run: npm install
-    - run: npm run install:ffprobe
     - run: npm run build:linux
     #- name: Upload a Deploy Artifact
     #  uses: actions/upload-artifact@v2
