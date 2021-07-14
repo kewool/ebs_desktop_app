@@ -32,8 +32,7 @@
   "dependencies": {
     "@ffprobe-installer/ffprobe": "^1.1.0",
     "axios": "^0.21.1",
-    "ebsoc": "file:ebsoc",
-    "ebsoc-lib": "^1.0.0",
+    "ebsoc-lib-for-app": "^1.0.5",
     "electron-updater": "^4.3.9",
     "jquery": "^3.6.0",
     "puppeteer": "^10.1.0"
