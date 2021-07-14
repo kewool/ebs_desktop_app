@@ -29,8 +29,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: git submodule init
-    - run: git submodule update
+    #- run: git submodule init
+    #- run: git submodule update
     - run: sudo apt update
     - run: sudo dpkg --add-architecture i386
     - run: sudo apt install wine64 libwine
