@@ -53,7 +53,7 @@
         "provider": "github",
         "owner": "kewool",
         "repo": "ebs_desktop_app",
-        "token": "%token%"
+        "token": "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"
       }
     ],
     "nsis": {
