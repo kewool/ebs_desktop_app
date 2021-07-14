@@ -22,8 +22,7 @@
     "deploy:linux64": "electron-builder --linux --x64 --publish always",
     "deploy:win": "electron-builder --win --ia32 --x64 --publish always",
     "deploy:win32": "electron-builder --win --ia32 --publish always",
-    "deploy:win64": "electron-builder --win --x64 --publish always",
-    "test": "install-app-deps"
+    "deploy:win64": "electron-builder --win --x64 --publish always"
   },
   "keywords": [],
   "author": "kewool <crobrine@naver.com> (https://kewool.net/)",
@@ -41,7 +40,7 @@
   "dependencies": {
     "@ffprobe-installer/ffprobe": "^1.1.0",
     "axios": "^0.21.1",
-    "ebsoc": "^1.0.5",
+    "ebsoc": "^1.0.6",
     "electron-updater": "^4.3.9",
     "jquery": "^3.6.0",
     "puppeteer": "^10.1.0"
