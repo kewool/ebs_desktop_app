@@ -1,6 +1,6 @@
 {
   "name": "ebsoc-app",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "src/main.js",
   "scripts": {
@@ -38,7 +38,6 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@ffprobe-installer/ffprobe": "^1.1.0",
     "axios": "^0.21.1",
     "ebsoc": "^1.0.6",
     "electron-updater": "^4.3.9",
