@@ -62,17 +62,19 @@
     "win": {
       "target": [
         "zip",
-        "nsis"
+        "nsis",
+        "nsis-web",
+        "portable"
       ],
       "icon": "./resources/installer/icon.ico"
     },
     "linux": {
       "target": [
         "AppImage",
+        "snap",
         "deb",
         "rpm",
-        "zip",
-        "tar.gz"
+        "zip"
       ],
       "icon": "./resources/installer/icon.png"
     },
@@ -88,8 +90,20 @@
       "icon": "./resources/installer/icon.icns"
     },
     "nsis": {
+      "artifactName": "${productName} Setup ${version}.${ext}",
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": true,
+      "differentialPackage": true
+    },
+    "nsisWeb": {
+      "artifactName": "${productName} Light Setup ${version}.${ext}",
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": true,
+      "differentialPackage": true
     },
     "directories": {
       "buildResources": "./resources/installer/",
