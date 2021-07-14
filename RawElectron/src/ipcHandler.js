@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
 let userdata = {};
 let browser;
 
-(async() => {
+(async () => {
     const process = require('process');
     const fs = require('fs');
 
@@ -15,16 +15,16 @@ let browser;
         `${process.env['ProgramFiles(x86)']}\\Google\\Chrome\\Application\\chrome.exe`,
         `${process.env['LOCALAPPDATA']}\\Google\\Chrome\\Application\\chrome.exe`,
     ];
-    for (let path of chromePaths){
+    for (let path of chromePaths) {
         let exists = fs.existsSync(path);
-        if (exists){
+        if (exists) {
             chromePath = path;
             return;
         }
     }
 })();
 
-const createBrowser = async function(){
+const createBrowser = async function () {
     console.log(chromePath);
     browser = await puppeteer.launch({
         args: [],
@@ -54,6 +54,7 @@ ipcMain.on(COMMON.OPEN_AT_CHROME, async (event, url) => {
             userdata = await ebs.Common.member(userdata.token);
         }
         const page = await browser.newPage();
+        console.log(userdata);
         await page.setCookie(...[
             {
                 name: 'access',
@@ -72,6 +73,12 @@ ipcMain.on(COMMON.OPEN_AT_CHROME, async (event, url) => {
                 value: userdata.memberInfo.memberSchoolCode,
                 domain: ".ebsoc.co.kr",
                 secure: false
+            },
+            {
+                name: 'memberSeq',
+                value: userdata.memberInfo.memberSeq.toString(),
+                domain: ".ebsoc.co.kr",
+                secure: false
             }
         ]);
         await page.goto(url);
@@ -84,8 +91,7 @@ ipcMain.on(COMMON.OPEN_AT_CHROME, async (event, url) => {
 
 const LOGIN = require('./events/login');
 
-ipcMain.on(LOGIN.SIGNIN_REQUEST, async (event, args) => {
-    let { id, pwd } = args;
+ipcMain.on(LOGIN.SIGNIN_REQUEST, async (event, { id, pwd }) => {
     try {
         let data = await ebs.Auth.login(id, pwd);
         userdata = data.data;
@@ -96,9 +102,11 @@ ipcMain.on(LOGIN.SIGNIN_REQUEST, async (event, args) => {
     }
 });
 
-ipcMain.on(LOGIN.SIGNIN_WITH_TOKEN, async (event, args) => {
+ipcMain.on(LOGIN.SIGNIN_WITH_TOKEN, async (event, token) => {
     try {
-        userdata = await ebs.Common.member(args);
+        userdata = {};
+        userdata.memberInfo = (await ebs.Common.member(token)).data;
+        userdata.token = token;
         event.reply(LOGIN.SIGNIN_COMPLETE);
     }
     catch (err) {
@@ -176,6 +184,6 @@ ipcMain.on(PLAYER.PLAYER, async (event, args) => {
     event.reply(PLAYER.PLAYER, { status: "ok", player: Player, create_data: data, detail_data: detail });
 });
 
-ipcMain.on(PLAYER.PLAYER_PROGRESS, async(event, {  }) => {
+ipcMain.on(PLAYER.PLAYER_PROGRESS, async (event, { }) => {
 
 });
