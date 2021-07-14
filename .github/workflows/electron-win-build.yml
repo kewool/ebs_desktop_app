@@ -31,7 +31,6 @@ jobs:
         cache: 'npm'
     #- run: git submodule init
     #- run: git submodule update
-    - run: xz --version
     - run: sudo apt update
     - run: sudo dpkg --add-architecture i386
     - run: sudo apt install wine64 libwine
