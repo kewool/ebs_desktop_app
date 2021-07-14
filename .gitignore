@@ -1,5 +1,4 @@
 node_modules/
-package-lock.json
 electron-quick-start/
 electron-updater-example/
 dev-app-update.yml
