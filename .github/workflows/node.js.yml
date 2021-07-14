@@ -26,10 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: apt-get update
     - run: sudo dpkg --add-architecture i386
-    - run: sudo apt install wine64
+    - run: sudo apt install wine64 wine32
     - run: wget -qO- https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
     - run: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv F987672F
-    - run: lsb_release -a
+    - run: sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+    - run: sudo apt-get install --install-recommends winehq-stable
     - run: npm install
     - run: npm run publish
