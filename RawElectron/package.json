@@ -10,6 +10,7 @@
     "build": "electron-builder --windows nsis --publish never",
     "deploy": "electron-builder --windows nsis --publish always",
     "publish": "electron-builder --windows nsis --publish always",
+    "ci": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
