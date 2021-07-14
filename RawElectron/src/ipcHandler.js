@@ -25,6 +25,7 @@ let browser;
 })();
 
 const createBrowser = async function(){
+    console.log(chromePath);
     browser = await puppeteer.launch({
         args: [],
         headless: false,
@@ -36,7 +37,7 @@ const createBrowser = async function(){
     browser.on('targetcreated', async function cb() {
         let pages = await browser.pages();
         if (pages.length > 1) {
-            //await pages[0].close();
+            await pages[0].close();
             browser.off('targetcreated', cb);
         }
     });
@@ -173,4 +174,8 @@ ipcMain.on(PLAYER.PLAYER, async (event, args) => {
         event.reply(COURSE.PLAYER, { status: "err", err: data.err });
     }
     event.reply(PLAYER.PLAYER, { status: "ok", player: Player, create_data: data, detail_data: detail });
+});
+
+ipcMain.on(PLAYER.PLAYER_PROGRESS, async(event, {  }) => {
+
 });
