@@ -27,10 +27,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: sudo dpkg --add-architecture i386
-    - run: wget -nc https://dl.winehq.org/wine-builds/winehq.key
-    - run: sudo apt-key add winehq.key
-    - run: sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
-    - run: sudo apt update
-    - run: sudo apt install --install-recommends winehq-stable
+    - run: sudo apt install wine64
+    - run: wget -qO- https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
+    - run: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv F987672F
+    - run: lsb_release -a
     - run: npm install
     - run: npm run publish
