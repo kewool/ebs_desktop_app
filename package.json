@@ -75,7 +75,7 @@
         "deb",
         "rpm",
         "zip",
-        "tar"
+        "tar.gz"
       ],
       "icon": "./resources/installer/icon.png"
     },
