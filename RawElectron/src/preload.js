@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e59c9327f59206c34ed6c45e22dad8fbbaf4e83b30d038ad5c0dd4b5ef09e0fe
-size 369
+window.addEventListener('DOMContentLoaded', () => {
+    const replaceText = (selector, text) => {
+        const element = document.getElementById(selector);
+        if (element) element.innerText = text;
+    };
+
+    for (const dependency of ['chrome', 'node', 'electron']) {
+        replaceText(`${dependency}-version`, process.versions[dependency]);
+    }
+});

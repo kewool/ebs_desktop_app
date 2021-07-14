@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8db4d2edf197748230e39f4115f90b67302b2b57f1bd1fffbca7912b8b6bfa07
-size 977
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ebsoc://public/style/login.css">
+</head>
+
+<body>
+    <div class="box_line">
+        <div class="login_box">
+            <div class="line">
+                <input type="text" id="id" class="inputtext" placeholder="아이디" onkeydown="javascript:enter();">
+                <input type="password" id="pass" class="inputtext" placeholder="비밀번호" onkeydown="javascript:enter();">
+            </div>
+            <div class="btn_line">
+                <input type="button" class="login_btn" value="로그인" onclick="login();">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer hidden">
+        Node.js <span id="node-version"></span><br>
+        Chromium <span id="chrome-version"></span><br>
+        Electron <span id="electron-version"></span><br>
+    </div>
+    <script src="ebsoc://renderers/login.js"></script>
+</body>
+
+
+</html>

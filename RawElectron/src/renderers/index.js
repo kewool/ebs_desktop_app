@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:843a4708551c3feeaeec2c3142fcf7a36e082e5c9f54678fcbf66a5e1f563966
-size 710
+var { ipcRenderer } = require('electron');
+const CLASS = require('../events/class.js');
+const $ = require('jquery');
+
+$(() => {
+    ipcRenderer.send(CLASS.CLASS_LIST_REQUEST);
+});
+
+ipcRenderer.on(CLASS.CLASS_LIST_RESPONSE, (event, data) => {
+    console.log(data.data);
+    $("div.panel").empty();
+    for (let item of data.data.list) {
+        $("div.panel").append(`<div class="obj">
+            <a href="./course.html?classUrlPath=${encodeURI(item.classUrlPath)}" class="padding">
+                <p class="obj_text">${item.className}</p>
+            </a>
+        </div>`);
+    }
+});
+
+ipcRenderer.on(CLASS.CLASS_LIST_FAILURE, () => {
+    ipcRenderer.send(CLASS.CLASS_LIST_REQUEST);
+});

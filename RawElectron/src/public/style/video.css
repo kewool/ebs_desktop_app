@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b97561c475806896df7613341d9f16ec2dbc98bb911e9d696ff571681eaa7e1
-size 100
+video {
+    width: 100%;
+}
+
+.download {
+    background-color: white;
+    text-align:center;
+}

@@ -1,3 +1,89 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:97f793ac36fbb6d50437d02e62ef8ed0179e0d19f62c57ea12e38ebbfe0a212b
-size 1472
+html{
+    height:100%;
+}
+
+body{
+    background-color: black;
+    overflow: hidden;
+    display: table;
+    margin:auto;
+    align-items: center;
+    height:100%;
+}
+
+.box_line{
+    display:table-cell;
+    vertical-align: middle;
+    height:100%;
+}
+
+.login_box{
+    background-color: #f2f2f2;
+    width:400px;
+    height:200px;
+    text-align:center;
+    display:table;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.line{
+    height: 100%;
+    width:220px;
+    display:table-cell;
+    vertical-align: middle;
+    padding-left: 25px;
+}
+
+.inputtext{
+    display: inline;
+    box-shadow: none;
+    border-color:white;
+    border: 1px solid #ccd9e6;
+    border-radius: 3px;
+    height:35px;
+    width:250px;
+    font-size:18px;
+    margin:2px;
+    padding:0px 3px 0px 3px;
+}
+.inputtext:focus{
+    outline:none;
+}
+.inputtext::placeholder{
+    font-size:16px;
+    color:#cccccc;
+}
+
+.btn_line{
+    height: 100%;
+    width:100%;
+    display:table-cell;
+    vertical-align: middle;
+    padding-right: 25px;
+}
+.login_btn{
+    width:82px;
+    height:78px;
+    padding:0;
+    border: none;
+    border-radius: 5px;
+    background-color: #fa722e;
+    font-size: 20px;
+    color:white;
+}
+.login_btn:hover{
+    cursor: pointer;
+}
+.login_btn:active {
+    background-color: #fa5300;
+}
+
+.footer {
+    position: absolute;
+    left: 0px;
+    color: #FFFFFF;
+}
+.hidden {
+    color: #000 !important;
+}

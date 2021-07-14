@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09e297aa22339bae46ff444b456539a51d43be3b02928af9e90311d111d6b7d5
-size 777
+const { ipcRenderer } = require('electron');
+const PLAYER = require('../events/player');
+const $ = require('jquery');
+
+$(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlParams);
+    const { classUrlPath, lessonSeq, subLessonSeq } = params;
+    ipcRenderer.send(PLAYER.PLAYER, params);
+});
+
+ipcRenderer.on(PLAYER.PLAYER, (event, args) => {
+    console.log(args);
+    Player = args.player;
+    FileObject = Player.lectureDetailInfo.lectureContentsDto.lectureContentsMvpDto.mvpFileDto;
+    $(document.body).append(`<video src="${FileObject.fileStoragePath}" controls></video>`);
+    $(document.body).append(`<div class="download"><a href="${FileObject.fileStoragePath}">download</a></div>`);
+});
