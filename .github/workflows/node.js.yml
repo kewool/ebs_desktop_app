@@ -3,6 +3,9 @@
 
 name: Node.js CI
 
+env:
+  GH_TOKEN: ${{ SECRETS.GITHUB_TOKEN }}
+
 on:
   push:
     branches: [ master ]
