@@ -1,0 +1,5 @@
+module.exports = {
+    PLAYER: 'PLAYER',
+    PLAYER_PROGRESS: 'PLAYER_PROGRESS',
+    PLAYER_DATA: 'PLAYER_DATA'
+};

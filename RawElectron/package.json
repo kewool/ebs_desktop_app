@@ -7,7 +7,9 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "deploy": "electron-builder --windows nsis",
+    "build": "electron-builder --windows nsis --publish never",
+    "deploy": "electron-builder --windows nsis --publish always",
+    "publish": "electron-builder --windows nsis --publish always",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +19,7 @@
     "axios": "^0.21.1",
     "ebsoc": "file:../ebsoc",
     "ebsoc-lib": "^1.0.0",
+    "electron-updater": "^4.3.9",
     "jquery": "^3.6.0",
     "puppeteer": "^10.1.0"
   },
@@ -45,6 +48,14 @@
       ],
       "icon": "./resources/installer/icon.ico"
     },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "kewool",
+        "repo": "ebs_desktop_app",
+        "token": "%token%"
+      }
+    ],
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true

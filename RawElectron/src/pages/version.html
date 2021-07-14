@@ -1,0 +1,26 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <p>Current version: <span id="current-version"></span></p>
+    <p id="message"></p>
+    <script>
+        var { ipcRenderer } = require("electron");
+
+        const replaceText = (selector, text) => {
+            const element = document.getElementById(selector);
+            if (element) element.innerText = text;
+        };
+
+        replaceText('current-version', window.location.hash.substr(1));
+        ipcRenderer.on("message", function (event, data) {
+            const element = document.getElementById("message");
+            if (element) element.innerText = data;
+        });
+    </script>
+</body>
+
+</html>
