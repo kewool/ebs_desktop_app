@@ -1,6 +1,6 @@
 const { ipcMain } = require('electron');
-const { Wrapper } = require('ebsoc');
-const ebs = require('ebsoc');
+const { Wrapper } = require('ebsoc-lib-for-app');
+const ebs = require('ebsoc-lib-for-app');
 const puppeteer = require('puppeteer');
 
 let userdata = {};
