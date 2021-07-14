@@ -17,7 +17,16 @@
     "build:win64": "electron-builder --win nsis --x64"
   },
   "keywords": [],
-  "author": "",
+  "contributors": [
+    {
+      "name": "kewool",
+      "email": "crobrine@naver.com"
+    },
+    {
+      "name": "rmagur1203",
+      "email": "rmagur1203@naver.com"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "@ffprobe-installer/ffprobe": "^1.1.0",
