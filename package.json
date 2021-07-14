@@ -8,13 +8,17 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "build": "npm run build:linux && npm run build:win",
+    "install:ffprobe": "npm install @ffprobe-installer/darwin-x64 @ffprobe-installer/linux-ia32 @ffprobe-installer/linux-x64 @ffprobe-installer/win32-ia32 @ffprobe-installer/win32-x64",
     "build:osx": "electron-builder --mac --publish onTagOrDraft",
     "build:linux": "electron-builder --linux --ia32 --x64 --publish onTagOrDraft",
     "build:linux32": "electron-builder --linux --ia32 --publish onTagOrDraft",
     "build:linux64": "electron-builder --linux --x64 --publish onTagOrDraft",
     "build:win": "electron-builder --win nsis --ia32 --x64 --publish onTagOrDraft",
     "build:win32": "electron-builder --win nsis --ia32 --publish onTagOrDraft",
-    "build:win64": "electron-builder --win nsis --x64 --publish onTagOrDraft"
+    "build:win64": "electron-builder --win nsis --x64 --publish onTagOrDraft",
+    "build:win-test": "electron-builder --win --ia32 --x64 --publish onTagOrDraft",
+    "build:win32-test": "electron-builder --win --ia32 --publish onTagOrDraft",
+    "build:win64-test": "electron-builder --win --x64 --publish onTagOrDraft"
   },
   "keywords": [],
   "author": "kewool <crobrine@naver.com> (https://kewool.net/)",
@@ -93,14 +97,11 @@
     "nsis": {
       "artifactName": "${productName} Setup ${version}.${ext}",
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "runAfterFinish": true,
-      "deleteAppDataOnUninstall": true,
-      "differentialPackage": true
+      "allowToChangeInstallationDirectory": true
     },
     "nsisWeb": {
       "artifactName": "${productName} Light Setup ${version}.${ext}",
-      "oneClick": true,
+      "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
       "deleteAppDataOnUninstall": true,
