@@ -81,8 +81,7 @@
       {
         "provider": "github",
         "owner": "kewool",
-        "repo": "ebs_desktop_app",
-        "token": "%token%"
+        "repo": "ebs_desktop_app"
       }
     ],
     "dmg": {
