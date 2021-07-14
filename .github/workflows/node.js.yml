@@ -35,3 +35,8 @@ jobs:
     - run: sudo apt-get install --install-recommends winehq-stable
     - run: npm install
     - run: npm run build
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: dist
