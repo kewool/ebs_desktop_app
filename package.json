@@ -14,7 +14,7 @@
     "build:linux64": "electron-builder --linux --x64 --publish onTagOrDraft",
     "build:win": "electron-builder --win --ia32 --x64 --publish onTagOrDraft",
     "build:win32": "electron-builder --win --ia32 --publish onTagOrDraft",
-    "build:win64": "electron-builder --win --x64 --publish onTagOrDraft",
+    "build:win64": "electron-builder build --win --x64 --publish onTagOrDraft",
     "deploy": "npm run build:linux && npm run build:win",
     "deploy:osx": "electron-builder --mac --publish always",
     "deploy:linux": "electron-builder --linux --ia32 --x64 --publish always",
@@ -22,7 +22,8 @@
     "deploy:linux64": "electron-builder --linux --x64 --publish always",
     "deploy:win": "electron-builder --win --ia32 --x64 --publish always",
     "deploy:win32": "electron-builder --win --ia32 --publish always",
-    "deploy:win64": "electron-builder --win --x64 --publish always"
+    "deploy:win64": "electron-builder --win --x64 --publish always",
+    "test": "install-app-deps"
   },
   "keywords": [],
   "author": "kewool <crobrine@naver.com> (https://kewool.net/)",
@@ -46,7 +47,6 @@
     "puppeteer": "^10.1.0"
   },
   "devDependencies": {
-    "axios": "^0.21.1",
     "electron": "^13.1.6",
     "electron-builder": "^22.11.7"
   },
