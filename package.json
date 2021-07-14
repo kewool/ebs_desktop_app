@@ -13,12 +13,9 @@
     "build:linux": "electron-builder --linux --ia32 --x64 --publish onTagOrDraft",
     "build:linux32": "electron-builder --linux --ia32 --publish onTagOrDraft",
     "build:linux64": "electron-builder --linux --x64 --publish onTagOrDraft",
-    "build:win": "electron-builder --win nsis --ia32 --x64 --publish onTagOrDraft",
-    "build:win32": "electron-builder --win nsis --ia32 --publish onTagOrDraft",
-    "build:win64": "electron-builder --win nsis --x64 --publish onTagOrDraft",
-    "build:win-test": "electron-builder --win --ia32 --x64 --publish onTagOrDraft",
-    "build:win32-test": "electron-builder --win --ia32 --publish onTagOrDraft",
-    "build:win64-test": "electron-builder --win --x64 --publish onTagOrDraft"
+    "build:win": "electron-builder --win --ia32 --x64 --publish onTagOrDraft",
+    "build:win32": "electron-builder --win --ia32 --publish onTagOrDraft",
+    "build:win64": "electron-builder --win --x64 --publish onTagOrDraft"
   },
   "keywords": [],
   "author": "kewool <crobrine@naver.com> (https://kewool.net/)",
