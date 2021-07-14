@@ -17,6 +17,7 @@
     "build:win64": "electron-builder --win nsis --x64"
   },
   "keywords": [],
+  "author": "kewool <crobrine@naver.com> (https://kewool.net/)",
   "contributors": [
     {
       "name": "kewool",
