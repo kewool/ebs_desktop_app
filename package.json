@@ -7,11 +7,14 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "build": "electron-builder --windows nsis --publish never",
-    "deploy": "electron-builder --windows nsis --publish always",
-    "publish": "electron-builder --windows nsis --publish always",
-    "ci": "npm install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:linux && npm run build:win",
+    "build:osx": "electron-builder --mac",
+    "build:linux": "npm run build:linux32 && npm run build:linux64",
+    "build:linux32": "electron-builder --linux --ia32",
+    "build:linux64": "electron-builder --linux --x64",
+    "build:win": "npm run build:win32 && npm run build:win64",
+    "build:win32": "electron-builder --win nsis --ia32",
+    "build:win64": "electron-builder --win nsis --x64"
   },
   "keywords": [],
   "author": "",
@@ -41,7 +44,11 @@
       ]
     },
     "mac": {
-      "category": "ebs.online.class.electron.application"
+      "category": "ebs.online.class.electron.application",
+      "target": [
+        "default"
+      ],
+      "icon": "./resources/installer/icon.icns"
     },
     "win": {
       "target": [
@@ -50,14 +57,28 @@
       ],
       "icon": "./resources/installer/icon.ico"
     },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "zip",
+        "tar.gz"
+      ],
+      "icon": "./resources/installer/icon"
+    },
     "publish": [
       {
         "provider": "github",
         "owner": "kewool",
         "repo": "ebs_desktop_app",
-        "token": "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"
+        "token": "%token%"
       }
     ],
+    "dmg": {
+      "title": "ebsoc-app",
+      "icon": "./resources/installer/icon.icns"
+    },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
