@@ -7,7 +7,6 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "install:ffprobe": "npm install @ffprobe-installer/darwin-x64 @ffprobe-installer/linux-ia32 @ffprobe-installer/linux-x64 @ffprobe-installer/win32-ia32 @ffprobe-installer/win32-x64",
     "build": "npm run build:linux && npm run build:win",
     "build:osx": "electron-builder --mac --publish onTagOrDraft",
     "build:linux": "electron-builder --linux --ia32 --x64 --publish onTagOrDraft",
