@@ -65,7 +65,7 @@
         "zip",
         "tar.gz"
       ],
-      "icon": "./resources/installer/icon"
+      "icon": "./resources/installer/icon.png"
     },
     "publish": [
       {
