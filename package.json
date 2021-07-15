@@ -76,12 +76,7 @@
     "linux": {
       "category": "Education",
       "target": [
-        "AppImage",
-        "snap",
-        "deb",
-        "rpm",
-        "zip",
-        "tar.gz"
+        "snap"
       ],
       "icon": "./resources/installer/icon.png"
     },
