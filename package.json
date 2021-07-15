@@ -1,7 +1,7 @@
 {
   "name": "ebsoc-app",
   "version": "1.0.2",
-  "description": "",
+  "description": "ebs online class to application",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -52,6 +52,7 @@
     "appId": "com.ebsoc.app",
     "productName": "ebsoc-app",
     "copyright": "Copyright © 2021 kewool, rmagur1203",
+    "compression": "maximum",
     "protocols": {
       "name": "ebsoc-app",
       "schemes": [
@@ -59,7 +60,7 @@
       ]
     },
     "mac": {
-      "category": "ebs.online.class.electron.application",
+      "category": "public.app-category.education",
       "target": [
         "default"
       ],
@@ -69,18 +70,20 @@
       "target": [
         "zip",
         "nsis-web",
-        "portable"
+        "portable",
+        "msi"
       ],
       "icon": "./resources/installer/icon.ico"
     },
     "linux": {
+      "category": "Education",
       "target": [
         "AppImage",
-        "snap",
         "deb",
         "rpm",
         "zip",
-        "tar.gz"
+        "tar.gz",
+        "tar.xz"
       ],
       "icon": "./resources/installer/icon.png"
     },
@@ -91,17 +94,35 @@
         "repo": "ebs_desktop_app"
       }
     ],
+    "deb": {
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
+    },
+    "rpm": {
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
+    },
     "dmg": {
       "title": "ebsoc-app",
-      "icon": "./resources/installer/icon.icns"
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+      "internetEnabled": true
+    },
+    "appx": {
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+      "languages": [
+        "ko-KR"
+      ]
+    },
+    "msi": {
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
     },
     "nsis": {
-      "artifactName": "${productName} Setup ${version}.${ext}",
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": true
     },
     "nsisWeb": {
-      "artifactName": "${productName} Light Setup ${version}.${ext}",
+      "artifactName": "${productName}-${version}-${os}-${arch}_light.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
