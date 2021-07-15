@@ -94,7 +94,6 @@
         "repo": "ebs_desktop_app"
       }
     ],
-
     "deb": {
       "artifactName": "${productName}-${version}_{os}_{arch}.${ext}"
     },
@@ -117,7 +116,7 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
-      "deleteAppDataOnUninstall": true,
+      "deleteAppDataOnUninstall": true
     },
     "nsisWeb": {
       "artifactName": "${productName}-${version}_{os}_{arch}_light.${ext}",
