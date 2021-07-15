@@ -52,6 +52,7 @@
     "appId": "com.ebsoc.app",
     "productName": "ebsoc-app",
     "copyright": "Copyright © 2021 kewool, rmagur1203",
+    "compression": "maximum",
     "protocols": {
       "name": "ebsoc-app",
       "schemes": [
@@ -69,7 +70,8 @@
       "target": [
         "zip",
         "nsis-web",
-        "portable"
+        "portable",
+        "msi"
       ],
       "icon": "./resources/installer/icon.ico"
     },
@@ -80,7 +82,8 @@
         "deb",
         "rpm",
         "zip",
-        "tar.gz"
+        "tar.gz",
+        "tar.xz"
       ],
       "icon": "./resources/installer/icon.png"
     },
@@ -91,17 +94,33 @@
         "repo": "ebs_desktop_app"
       }
     ],
+
+    "deb": {
+      "artifactName": "${productName}-${version}_{os}_{arch}.${ext}"
+    },
+    "rpm": {
+      "artifactName": "${productName}-${version}_{os}_{arch}.${ext}"
+    },
     "dmg": {
       "title": "ebsoc-app",
-      "icon": "./resources/installer/icon.icns"
+      "artifactName": "${productName}-${version}_{os}_{arch}.${ext}",
+      "internetEnabled": true
+    },
+    "appx": {
+      "artifactName": "${productName}-${version}_{os}_{arch}.${ext}",
+      "languages": [
+        "ko-KR"
+      ]
     },
     "nsis": {
-      "artifactName": "${productName} Setup ${version}.${ext}",
+      "artifactName": "${productName}-${version}_{os}_{arch}.${ext}",
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": true,
     },
     "nsisWeb": {
-      "artifactName": "${productName} Light Setup ${version}.${ext}",
+      "artifactName": "${productName}-${version}_{os}_{arch}_light.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
