@@ -1,7 +1,7 @@
 {
   "name": "ebsoc-app",
   "version": "1.0.2",
-  "description": "",
+  "description": "ebs online class to application",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "electron": "^13.1.6",
-    "electron-builder": "^21.2.0"
+    "electron-builder": "^22.11.7"
   },
   "build": {
     "appId": "com.ebsoc.app",
@@ -59,7 +59,7 @@
       ]
     },
     "mac": {
-      "category": "ebs.online.class.electron.application",
+      "category": "public.app-category.education",
       "target": [
         "default"
       ],
@@ -74,9 +74,12 @@
       "icon": "./resources/installer/icon.ico"
     },
     "linux": {
+      "category": "Education",
       "target": [
         "AppImage",
         "snap",
+        "deb",
+        "rpm",
         "zip",
         "tar.gz"
       ],
