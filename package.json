@@ -52,7 +52,6 @@
     "appId": "com.ebsoc.app",
     "productName": "ebsoc-app",
     "copyright": "Copyright © 2021 kewool, rmagur1203",
-    "compression": "maximum",
     "protocols": {
       "name": "ebsoc-app",
       "schemes": [
@@ -94,6 +93,10 @@
         "repo": "ebs_desktop_app"
       }
     ],
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "appImage":{
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
+    },
     "deb": {
       "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
     },
@@ -111,18 +114,13 @@
         "ko-KR"
       ]
     },
-    "msi": {
-      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
-    },
     "nsis": {
-      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
       "deleteAppDataOnUninstall": true
     },
     "nsisWeb": {
-      "artifactName": "${productName}-${version}-${os}-${arch}_light.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true,
