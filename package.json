@@ -52,7 +52,6 @@
     "appId": "com.ebsoc.app",
     "productName": "ebsoc-app",
     "copyright": "Copyright © 2021 kewool, rmagur1203",
-    "compression": "maximum",
     "protocols": {
       "name": "ebsoc-app",
       "schemes": [
