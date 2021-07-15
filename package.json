@@ -94,22 +94,11 @@
       }
     ],
     "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
-    "appImage":{
-      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
-    },
-    "deb": {
-      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
-    },
-    "rpm": {
-      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
-    },
     "dmg": {
       "title": "ebsoc-app",
-      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "internetEnabled": true
     },
     "appx": {
-      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "languages": [
         "ko-KR"
       ]
