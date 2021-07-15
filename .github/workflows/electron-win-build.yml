@@ -39,8 +39,6 @@ jobs:
     - run: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv F987672F
     - run: sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
     - run: sudo apt-get install --install-recommends winehq-stable
-    - run: sudo apt-get install Xvfb
-    - run: Xvfb :0 -screen 0 1024x768x16 &
     - run: npm install
     - run: npm run build:win
     #- name: Upload a Deploy Artifact
