@@ -10,9 +10,9 @@ const COURSE_STATUS = Object.freeze({
 });
 
 const COURSE_STATUS_TEXT = Object.freeze({
-    "000": "학습하기",
-    "001": "학습이어가기[수강중]",
-    "002": "복습하기[학습완료]"
+    "000": "학습시작",
+    "001": "학습계속하기",
+    "002": "학습완료"
 });
 
 const COURSE_STATUS_CLASS = Object.freeze({

@@ -8,28 +8,35 @@
 </head>
 
 <body>
-    <div class="topbar">
-        <a class="back" onclick="javascript:history.back()">
-            <img src="ebsoc://public/back.svg" class="back_img">
-        </a>
-        <div class="class_btn">
-            <a href="./index.html">
-                <div class="nav_btn">
-                    <p class="btn_text">내 클래스</p>
-                </div>
-            </a>
+    <div class="sidebar">
+        <div class="logo_panel">
+            <div class="logo">
+                <div class="logo_title">ebs</div>
+            </div>
+            <img src="ebsoc://public/menu.svg" class="menu_button">
         </div>
-        <div class="class_btn">
-            <a onclick="javascript:openInChrome()">
-                <div class="nav_btn">
-                    <p class="btn_text">크롬에서 열기</p>
-                </div>
-            </a>
-        </div>
-        <div class="logout_btn">
-            <p class="btn_text" style="color:red">로그아웃</p>
-        </div>
+        <ul class="nav_panel">
+            <li class="nav_list">
+                <a href="./index.html" class="nav_a">
+                    <img src="ebsoc://public/grid.svg" class="button">
+                    <span class="nav_text">내 클래스</span>
+                </a>
+            </li>
+            <li class="nav_list">
+                <a onclick="javascript:openInChrome()" class="nav_a">
+                    <img src="ebsoc://public/external.svg" class="button">
+                    <span class="nav_text">크롬에서 열기</span>
+                </a>
+            </li>
+            <li class="nav_list">
+                <a href="./login.html" class="nav_a">
+                    <img src="ebsoc://public/logout.svg" class="button">
+                    <span class="nav_text">로그아웃</span>
+                </a>
+            </li>
+        </ul>
     </div>
+    
     <ul class="card_list student">
     </ul>
     <script src="ebsoc://renderers/course.js"></script>
