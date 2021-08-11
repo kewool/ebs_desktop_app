@@ -1,6 +1,8 @@
 var { ipcRenderer } = require('electron');
 const COMMON = require('../events/common.js');
 
+console.log("Common.js Loaded");
+
 const openInChrome = function (url) {
     if (url)
         ipcRenderer.send(COMMON.OPEN_AT_CHROME, url);
@@ -8,6 +10,14 @@ const openInChrome = function (url) {
 
     }
 };
+
+const runOnMainThread = function (command) {
+    ipcRenderer.send("EVALUATE", command);
+};
+
+ipcRenderer.on("EVALUATE", (event, result) => {
+    console.log(result);
+});
 
 ipcRenderer.on(COMMON.OPEN_AT_CHROME, (event, args) => {
     if (args.code == "OK") {

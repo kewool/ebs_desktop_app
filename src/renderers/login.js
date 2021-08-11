@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+var { ipcRenderer } = require('electron');
 const LOGIN = require('../events/login.js');
 
 const enter = function () {

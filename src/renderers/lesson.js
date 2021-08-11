@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+var { ipcRenderer } = require('electron');
 const LESSON = require('../events/lesson.js');
 const $ = require('jquery');
 

@@ -1,5 +1,5 @@
 const { ipcMain } = require('electron');
-const { Wrapper } = require('ebsoc');
+const { Wrapper, Player } = require('../ebsoc/dist/index.js');
 const ebs = require('ebsoc');
 const puppeteer = require('puppeteer');
 
@@ -86,6 +86,15 @@ ipcMain.on(COMMON.OPEN_AT_CHROME, async (event, url) => {
     }
     catch (err) {
         event.reply(COMMON.OPEN_AT_CHROME, { code: "ERR", err: err });
+    }
+});
+
+ipcMain.on("EVALUATE", (event, command) => {
+    const result = eval(command);
+    try {
+        event.reply("EVALUATE", result);
+    } catch {
+        event.reply("EVALUATE", JSON.stringify(result));
     }
 });
 
