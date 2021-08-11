@@ -13,12 +13,34 @@ body {
 
 .sidebar{
     height:100%;
-    width:240px;
-    background:#FFD0DB;
+    width:78px;
+    background:#FFD3DA;
     position:fixed;
     top:0;
     left:0;
     padding:6px 14px;
+    transition:all 0.5s ease;
+}
+
+.open{
+    width:240px;
+}
+.open .logo{
+    opacity:1;
+    pointer-events: none;
+}
+.open .logo_panel .menu_button{
+    left:90%;
+}
+.open .popup{
+    display:none;
+}
+.open .nav_text{
+    opacity: 1;
+    pointer-events: auto;
+}
+.open .nav_a{
+    padding-left: 20px;
 }
 
 .logo{
@@ -27,6 +49,8 @@ body {
     width:100%;
     align-items: center;
     color:white;
+    opacity:0;
+    transition:all 0.5s ease;
 }
 
 .logo_title{
@@ -37,7 +61,7 @@ body {
 .menu_button{
     display:inline;
     position:absolute;
-    left:90%;
+    left:50%;
     top:6px;
     padding:15px 0 0 0;
     width:25px;
@@ -47,7 +71,6 @@ body {
 }
 
 .button{
-    margin-right:5px;
     width:20px;
     padding-right:20px;
     text-align: center;
@@ -63,9 +86,13 @@ body {
     width:100%;
     list-style:none;
     position:relative;
-    margin:0 5px;
-    list-style: none;
+    margin:0;
     line-height: 50px;
+}
+.nav_list:hover .popup{
+    transition:all 0.5s ease;
+    top: 50%;
+    opacity:1;
 }
 
 .nav_a{
@@ -75,7 +102,8 @@ body {
     text-decoration: none;
     transition:all 0.4s ease;
     border-radius: 12px;
-    padding-left: 20px;
+    padding-left: 10px;
+    white-space: nowrap;
 }
 .nav_a:hover{
     background-color:white;
@@ -84,4 +112,23 @@ body {
 
 .nav_text{
     font-size: 18px;
+    opacity:0;
+    pointer-events: none;
+    transition:all 0.5s ease;
+}
+
+.popup{
+    position:absolute;
+    height:35px;
+    left:122px;
+    top:50%;
+    width:122px;
+    background:white;
+    box-shadow:0 5px 10px #bcbcbc;
+    transform:translate(-50%,-50%);
+    line-height:35px;
+    text-align:center;
+    border-radius:6px;
+    transition:0s;
+    opacity:0;
 }

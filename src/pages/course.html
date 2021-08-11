@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ebsoc://public/style/sytle.css">
     <link rel="stylesheet" href="ebsoc://public/style/class.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <div class="logo_panel">
             <div class="logo">
                 <div class="logo_title">ebs</div>
             </div>
-            <img src="ebsoc://public/menu.svg" class="menu_button">
+            <img src="ebsoc://public/menu.svg" class="menu_button" id="menu_button">
         </div>
         <ul class="nav_panel">
             <li class="nav_list">
@@ -21,18 +22,21 @@
                     <img src="ebsoc://public/grid.svg" class="button">
                     <span class="nav_text">내 클래스</span>
                 </a>
+                <span class="popup">내 클래스</span>
             </li>
             <li class="nav_list">
-                <a onclick="javascript:openInChrome()" class="nav_a">
+                <a onclick="javascript:openInChrome('https://www.ebsoc.co.kr/')" class="nav_a">
                     <img src="ebsoc://public/external.svg" class="button">
                     <span class="nav_text">크롬에서 열기</span>
                 </a>
+                <span class="popup">크롬에서 열기</span>
             </li>
             <li class="nav_list">
                 <a href="./login.html" class="nav_a">
                     <img src="ebsoc://public/logout.svg" class="button">
                     <span class="nav_text">로그아웃</span>
                 </a>
+                <span class="popup">로그아웃</span>
             </li>
         </ul>
     </div>
@@ -41,6 +45,7 @@
     </ul>
     <script src="ebsoc://renderers/course.js"></script>
     <script src="ebsoc://renderers/common.js"></script>
+    <script src="ebsoc://src/sidebar.js"></script>
 </body>
 
 </html>
