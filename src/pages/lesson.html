@@ -7,29 +7,45 @@
 </head>
 
 <body>
-    <div class="topbar">
-        <a class="back" onclick="javascript:history.back()">
-            <img src="ebsoc://public/back.svg" class="back_img">
-        </a>
-        <div class="class_btn">
-            <a href="./index.html">
-                <div class="nav_btn">
-                    <p class="btn_text">내 클래스</p>
-                </div>
-            </a>
+    <div class="sidebar" id="sidebar" ondragstart="return false;">
+        <div class="logo_panel">
+            <div class="logo">
+                <div class="logo_title">ebsoc</div>
+            </div>
+            <img src="ebsoc://public/menu.svg" class="menu_button" id="menu_button">
         </div>
-        <div class="logout_btn">
-            <a href="./login.html">
-                <p class="btn_text" style="color:red">로그아웃</p>
-            </a>
+        <ul class="nav_panel">
+            <li class="nav_list">
+                <a href="./index.html" class="nav_a">
+                    <img src="ebsoc://public/grid.svg" class="button">
+                    <span class="nav_text">내 클래스</span>
+                </a>
+                <span class="popup">내 클래스</span>
+            </li>
+            <li class="nav_list">
+                <a onclick="javascript:openInChrome('https://www.ebsoc.co.kr/')" class="nav_a">
+                    <img src="ebsoc://public/external.svg" class="button">
+                    <span class="nav_text">크롬에서 열기</span>
+                </a>
+                <span class="popup">크롬에서 열기</span>
+            </li>
+            <li class="nav_list">
+                <a href="./login.html" class="nav_a">
+                    <img src="ebsoc://public/logout.svg" class="button">
+                    <span class="nav_text">로그아웃</span>
+                </a>
+                <span class="popup">로그아웃</span>
+            </li>
+        </ul>
+    </div>
+    <main>
+        <div class="board" style="display:block;">
+            
         </div>
-    </div>
-
-    <div class="board" style="display:block;">
-        
-    </div>
-
+    </main>
     <script src="ebsoc://renderers/lesson.js"></script>
+    <script src="ebsoc://renderers/common.js"></script>
+    <script src="ebsoc://sidebar.js"></script>
 </body>
 
 </html>

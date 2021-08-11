@@ -11,10 +11,25 @@ body {
     overflow:hidden;
 }
 
+main{
+    position:absolute;
+    height:100%;
+    width:calc(100%-78px);
+    transition: all 0.5s ease;
+    left:78px;
+    margin: 20px 0 0 20px;
+    display:flex;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
 .sidebar{
     height:100%;
     width:78px;
-    background:#FFD3DA;
+    background:#5C000D;
     position:fixed;
     top:0;
     left:0;
@@ -29,7 +44,7 @@ body {
     opacity:1;
     pointer-events: none;
 }
-.open .logo_panel .menu_button{
+.open .menu_button{
     left:90%;
 }
 .open .popup{
@@ -38,9 +53,17 @@ body {
 .open .nav_text{
     opacity: 1;
     pointer-events: auto;
+    transition:none;
 }
 .open .nav_a{
     padding-left: 20px;
+}
+.open .nav_list:hover .popup{
+    display:none;
+}
+.open ~ main{
+    left:240px;
+    width:calc(100%-240px);
 }
 
 .logo{
@@ -51,6 +74,7 @@ body {
     color:white;
     opacity:0;
     transition:all 0.5s ease;
+    pointer-events: none;
 }
 
 .logo_title{
@@ -72,7 +96,7 @@ body {
 
 .button{
     width:20px;
-    padding-right:20px;
+    padding-right: 20px;
     text-align: center;
     min-width: 50px;
 }
@@ -92,6 +116,7 @@ body {
 .nav_list:hover .popup{
     transition:all 0.5s ease;
     top: 50%;
+    display:inline;
     opacity:1;
 }
 
@@ -108,6 +133,7 @@ body {
 .nav_a:hover{
     background-color:white;
     color:black;
+    cursor: pointer;
 }
 
 .nav_text{
@@ -131,4 +157,5 @@ body {
     border-radius:6px;
     transition:0s;
     opacity:0;
+    display:none;
 }
