@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ebsoc://public/style/sytle.css">
     <link rel="stylesheet" href="ebsoc://public/style/class.css">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar" id="sidebar" ondragstart="return false;">
         <div class="logo_panel">
             <div class="logo">
-                <div class="logo_title">ebs</div>
+                <div class="logo_title">ebsoc</div>
             </div>
             <img src="ebsoc://public/menu.svg" class="menu_button" id="menu_button">
         </div>
@@ -40,9 +39,11 @@
             </li>
         </ul>
     </div>
-    
-    <ul class="card_list student">
-    </ul>
+    <main>
+        <ul class="card_list student">
+            
+        </ul>
+    </main>
     <script src="ebsoc://renderers/course.js"></script>
     <script src="ebsoc://renderers/common.js"></script>
     <script src="ebsoc://public/javascript/sidebar.js"></script>
