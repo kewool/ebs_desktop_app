@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ebsoc://public/style/sytle.css">
-    <link rel="stylesheet" href="ebsoc://public/style/class.css">
 </head>
 
 <body>
+    <main>
+        <div class="panel">
+            
+        </div>
+    </main>
     <div class="sidebar" id="sidebar" ondragstart="return false;">
         <div class="logo_panel">
             <div class="logo">
@@ -37,13 +41,15 @@
                 </a>
                 <span class="popup">로그아웃</span>
             </li>
+            <li class="nav_list back">
+                <a onclick="javascript:history.back()" class="nav_a">
+                    <img src="ebsoc://public/back.svg" class="button">
+                    <span class="nav_text">뒤로가기</span>
+                </a>
+                <span class="popup">뒤로가기</span>
+            </li>
         </ul>
     </div>
-    <main>
-        <ul class="card_list student">
-            
-        </ul>
-    </main>
     <script src="ebsoc://renderers/course.js"></script>
     <script src="ebsoc://renderers/common.js"></script>
     <script src="ebsoc://public/javascript/sidebar.js"></script>

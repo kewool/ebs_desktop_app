@@ -11,14 +11,13 @@ const COURSE_STATUS = Object.freeze({
 
 const COURSE_STATUS_TEXT = Object.freeze({
     "000": "학습시작",
-    "001": "학습계속하기",
+    "001": "학습계속",
     "002": "학습완료"
 });
 
 const COURSE_STATUS_CLASS = Object.freeze({
-    "000": "btn_line_keycolor",
-    "001": "btn_keycolor",
-    "002": "btn_grey"
+    "001": "course_btn_continue",
+    "002": "course_btn_done"
 });
 
 $(() => {
@@ -31,9 +30,9 @@ $(() => {
 ipcRenderer.on(COURSE.COURSE_RESPONSE, (event, data) => {
     if (window.location.search == "") return;
     console.log(data);
-    $("ul.student").empty();
+    $("div.panel").empty();
     for (let item of data.data.list) {
-        $("ul.student").append(`<li>
+        /*$("ul.student").append(`<li>
         <div class="info">
             <div class="tit eps2">${item.lessonName}</div>
         </div>
@@ -41,7 +40,13 @@ ipcRenderer.on(COURSE.COURSE_RESPONSE, (event, data) => {
              <a href="./lesson.html${window.location.search}&lessonSeq=${item.lessonSeq}"
                 class="btn ${COURSE_STATUS_CLASS[item.atltStsCd]}">${COURSE_STATUS_TEXT[item.atltStsCd]}</a>
         </div>
-    </li>`);
+    </li>`);*/
+        $("div.panel").append(`
+            <a href="./lesson.html${window.location.search}&lessonSeq=${item.lessonSeq}"class="obj ${COURSE_STATUS_CLASS[item.atltStsCd]}">
+                <p class="obj_text">${item.lessonName}</p>
+                <p class="course_btn">${COURSE_STATUS_TEXT[item.atltStsCd]}</p>
+            </a>
+        `);
     }
 });
 

@@ -1,6 +1,8 @@
-let button = document.querySelector("#menu_button");
-let sidebar = document.querySelector("#sidebar");
+const menu = document.querySelector('.menu_button');
+const sidebar = document.querySelector('.sidebar');
+const main = document.querySelector('main')
 
-button.onclick = function() {
-    sidebar.classList.toggle("open");
+menu.onclick = function(){
+    sidebar.classList.toggle('open_sidebar');
+    main.classList.toggle('open_main')
 }
